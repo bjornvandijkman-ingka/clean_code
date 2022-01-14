@@ -18,7 +18,6 @@ def load_data(filepath):
     Loads it as pd dataframe
     """
     df = pd.read_csv(filepath)  # Read lunch recipes dataframe.
-    df = df.head(20)
     # drop unnecessary columns
     df.drop(["url", "dish"], axis=1, inplace=True)
     return df
@@ -68,7 +67,7 @@ def check_if_extra_dishes():
 
 
 def read_attendance_sheet():
-    df = pd.read_csv("data/key_tag_logs.csv").head(1000)
+    df = pd.read_csv("data/key_tag_logs.csv")
 
     df["date"] = df["timestamp"].apply(lambda x: datetime.strptime(x[:10], "%Y-%m-%d"))
 
